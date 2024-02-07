@@ -31,21 +31,21 @@
       inputs.flake-utils.follows = "flake-utils";
       inputs.nixos.follows = "nixos";
       inputs.pythoneda-shared-banner.follows = "pythoneda-shared-banner";
-      url = "github:pythoneda-shared-def/domain/0.0.32";
+      url = "github:pythoneda-shared-def/domain/0.0.33";
     };
     pythoneda-shared-infrastructure = {
       inputs.flake-utils.follows = "flake-utils";
       inputs.nixos.follows = "nixos";
       inputs.pythoneda-shared-banner.follows = "pythoneda-shared-banner";
       inputs.pythoneda-shared-domain.follows = "pythoneda-shared-domain";
-      url = "github:pythoneda-shared-def/infrastructure/0.0.28";
+      url = "github:pythoneda-shared-def/infrastructure/0.0.29";
     };
     pythoneda-shared-runtime-lifecycle-events = {
       inputs.flake-utils.follows = "flake-utils";
       inputs.nixos.follows = "nixos";
       inputs.pythoneda-shared-banner.follows = "pythoneda-shared-banner";
       inputs.pythoneda-shared-domain.follows = "pythoneda-shared-domain";
-      url = "github:pythoneda-shared-runtime-def/lifecycle-events/0.0.8";
+      url = "github:pythoneda-shared-runtime-def/lifecycle-events/0.0.9";
     };
   };
   outputs = inputs:
