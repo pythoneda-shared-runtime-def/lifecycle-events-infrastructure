@@ -18,10 +18,10 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 {
   description =
-    "Infrastructure support for events relevant to the runtime lifecycle of domains";
+    "Nix flake for pythoneda-shared-runtime/lifecycles-events-infrastructure";
   inputs = rec {
-    nixos.url = "github:NixOS/nixpkgs/24.05";
     flake-utils.url = "github:numtide/flake-utils/v1.0.0";
+    nixos.url = "github:NixOS/nixpkgs/24.05";
     pythoneda-shared-pythonlang-banner = {
       inputs.flake-utils.follows = "flake-utils";
       inputs.nixos.follows = "nixos";
@@ -154,26 +154,7 @@
       in rec {
         defaultPackage = packages.default;
         devShells = rec {
-          default =
-            pythoneda-shared-runtime-lifecycle-events-infrastructure-default;
-          pythoneda-shared-runtime-lifecycle-events-infrastructure-default =
-            pythoneda-shared-runtime-lifecycle-events-infrastructure-python312;
-          pythoneda-shared-runtime-lifecycle-events-infrastructure-python38 =
-            shared.devShell-for {
-              banner = "${
-                  pythoneda-shared-pythonlang-banner.packages.${system}.pythoneda-shared-pythonlang-banner-python38
-                }/bin/banner.sh";
-              extra-namespaces = "";
-              nixpkgs-release = nixpkgsRelease;
-              package =
-                packages.pythoneda-shared-runtime-lifecycle-events-infrastructure-python38;
-              python = pkgs.python38;
-              pythoneda-shared-pythonlang-banner =
-                pythoneda-shared-pythonlang-banner.packages.${system}.pythoneda-shared-pythonlang-banner-python38;
-              pythoneda-shared-pythonlang-domain =
-                pythoneda-shared-pythonlang-domain.packages.${system}.pythoneda-shared-pythonlang-domain-python38;
-              inherit archRole layer org pkgs repo space;
-            };
+          default =pythoneda-shared-runtime-lifecycle-events-infrastructure-python312;
           pythoneda-shared-runtime-lifecycle-events-infrastructure-python39 =
             shared.devShell-for {
               banner = "${
@@ -238,22 +219,25 @@
                 pythoneda-shared-pythonlang-domain.packages.${system}.pythoneda-shared-pythonlang-domain-python312;
               inherit archRole layer org pkgs repo space;
             };
+          pythoneda-shared-runtime-lifecycle-events-infrastructure-python313 =
+            shared.devShell-for {
+              banner = "${
+                  pythoneda-shared-pythonlang-banner.packages.${system}.pythoneda-shared-pythonlang-banner-python313
+                }/bin/banner.sh";
+              extra-namespaces = "";
+              nixpkgs-release = nixpkgsRelease;
+              package =
+                packages.pythoneda-shared-runtime-lifecycle-events-infrastructure-python313;
+              python = pkgs.python313;
+              pythoneda-shared-pythonlang-banner =
+                pythoneda-shared-pythonlang-banner.packages.${system}.pythoneda-shared-pythonlang-banner-python313;
+              pythoneda-shared-pythonlang-domain =
+                pythoneda-shared-pythonlang-domain.packages.${system}.pythoneda-shared-pythonlang-domain-python313;
+              inherit archRole layer org pkgs repo space;
+            };
         };
         packages = rec {
-          default =
-            pythoneda-shared-runtime-lifecycle-events-infrastructure-default;
-          pythoneda-shared-runtime-lifecycle-events-infrastructure-default =
-            pythoneda-shared-runtime-lifecycle-events-infrastructure-python312;
-          pythoneda-shared-runtime-lifecycle-events-infrastructure-python38 =
-            pythoneda-shared-runtime-lifecycle-events-infrastructure-for {
-              python = pkgs.python38;
-              pythoneda-shared-pythonlang-domain =
-                pythoneda-shared-pythonlang-domain.packages.${system}.pythoneda-shared-pythonlang-domain-python38;
-              pythoneda-shared-pythonlang-infrastructure =
-                pythoneda-shared-pythonlang-infrastructure.packages.${system}.pythoneda-shared-pythonlang-infrastructure-python38;
-              pythoneda-shared-runtime-lifecycle-events =
-                pythoneda-shared-runtime-lifecycle-events.packages.${system}.pythoneda-shared-runtime-lifecycle-events-python38;
-            };
+          default = pythoneda-shared-runtime-lifecycle-events-infrastructure-python312;
           pythoneda-shared-runtime-lifecycle-events-infrastructure-python39 =
             pythoneda-shared-runtime-lifecycle-events-infrastructure-for {
               python = pkgs.python39;
@@ -293,6 +277,16 @@
                 pythoneda-shared-pythonlang-infrastructure.packages.${system}.pythoneda-shared-pythonlang-infrastructure-python312;
               pythoneda-shared-runtime-lifecycle-events =
                 pythoneda-shared-runtime-lifecycle-events.packages.${system}.pythoneda-shared-runtime-lifecycle-events-python312;
+            };
+          pythoneda-shared-runtime-lifecycle-events-infrastructure-python313 =
+            pythoneda-shared-runtime-lifecycle-events-infrastructure-for {
+              python = pkgs.python313;
+              pythoneda-shared-pythonlang-domain =
+                pythoneda-shared-pythonlang-domain.packages.${system}.pythoneda-shared-pythonlang-domain-python313;
+              pythoneda-shared-pythonlang-infrastructure =
+                pythoneda-shared-pythonlang-infrastructure.packages.${system}.pythoneda-shared-pythonlang-infrastructure-python313;
+              pythoneda-shared-runtime-lifecycle-events =
+                pythoneda-shared-runtime-lifecycle-events.packages.${system}.pythoneda-shared-runtime-lifecycle-events-python313;
             };
         };
       });
